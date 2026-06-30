@@ -22,11 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const participantsHtml = details.participants.length
           ? `<div class="participants"><strong>Participants:</strong><ul>${details.participants
             .map(email => `<li><span class="participant-email">${email}</span><button class="remove-participant" data-activity="${encodeURIComponent(name)}" data-email="${encodeURIComponent(email)}" aria-label="Remove ${email}">&times;</button></li>`)
-        activityCard.innerHTML = `
-          <h4>${name}</h4>
-          <p>${details.description}</p>
-          <p><strong>Schedule:</strong> ${details.schedule}</p>
-          <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+            .join("")}</ul></div>`
+        : `<p class="no-participants"><strong>Participants:</strong> None yet</p>`;
+
+      activityCard.innerHTML = `
           ${participantsHtml}
         `;
 
